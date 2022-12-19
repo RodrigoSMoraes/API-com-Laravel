@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* 
+Route::get('/hello/{name?}', function($name){
+    return 'Hello word ' . $name;
+});
+
+Route::post('/hello-post/{name?}', 'App\Http\Controllers\HelloWorldController@hello' ); */
+
+Route::get('/bands', 'App\Http\Controllers\BandController@getAll');
+Route::get('/bands/{id?}', 'App\Http\Controllers\BandController@getById');
+Route::get('/bands/gender/{gender?}', 'App\Http\Controllers\BandController@getBandsByGender');
+
+Route::post('/bands/store', 'App\Http\Controllers\BandController@store');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
